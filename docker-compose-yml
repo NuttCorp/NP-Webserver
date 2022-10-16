@@ -1,0 +1,34 @@
+version: '2'
+services:
+  app:
+    image: nuttcorp/np-webserver:latest
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - http_root:/var/www/html
+      - cron:/etc/periodic
+      - nginx_config:/etc/nginx
+      - php_config:/etc/php8
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+      MYSQL_DATABASE: 'dbname'
+      MYSQL_USER: 'dbuser'
+      MYSQL_PASSWORD: 'password'
+    volumes:
+      - db_data:/var/lib/mysql
+    command: '--default-authentication-plugin=mysql_native_password'
+    
+volumes:
+  http_root:
+  cron:
+  nginx_config:
+  php_config:
+  db_data:
