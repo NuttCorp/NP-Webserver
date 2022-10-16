@@ -14,6 +14,9 @@ RUN apk add nginx \
         php8-json \
         php8-xsl \
         php8-pdo_mysql \
+        php8-session \
+        php8-xml \
+        php8-simplexml \
         --no-cache
 RUN mkdir -p /var/www/html && chown -R root:www-data /var/www/html
 
