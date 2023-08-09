@@ -17,6 +17,8 @@ RUN apk add nginx \
         php8-session \
         php8-xml \
         php8-simplexml \
+        php8-ctype \
+        php8-fileinfo
         --no-cache
 RUN mkdir -p /var/www/html && chown -R root:www-data /var/www/html
 
@@ -28,5 +30,7 @@ EXPOSE 80
 EXPOSE 443
 
 STOPSIGNAL SIGTERM
+
+RUN usermod -u 1000 www-data
 
 CMD sh -c "php-fpm8 && crond && chmod 777 /var/run/php/php8-fpm.sock && nginx -g 'daemon off;'"
