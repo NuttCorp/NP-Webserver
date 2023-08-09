@@ -18,7 +18,7 @@ RUN apk add nginx \
         php8-xml \
         php8-simplexml \
         php8-ctype \
-        php8-fileinfo
+        php8-fileinfo \
         --no-cache
 RUN mkdir -p /var/www/html && chown -R root:www-data /var/www/html
 
