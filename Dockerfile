@@ -24,13 +24,13 @@ RUN mkdir -p /var/www/html && chown -R root:www-data /var/www/html
 
 COPY server/etc/nginx /etc/nginx
 COPY server/etc/php /etc/php8
-COPY src /var/www/html
+##COPY src /var/www/html
 RUN mkdir /var/run/php
 EXPOSE 80
 EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
-RUN usermod -u 1000 www-data
+RUN usermod -u 1000 nginx
 
 CMD sh -c "php-fpm8 && crond && chmod 777 /var/run/php/php8-fpm.sock && nginx -g 'daemon off;'"
