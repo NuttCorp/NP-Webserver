@@ -31,6 +31,4 @@ EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
-RUN usermod -u 1000 nginx
-
 CMD sh -c "php-fpm8 && crond && chmod 777 /var/run/php/php8-fpm.sock && nginx -g 'daemon off;'"
