@@ -2,23 +2,23 @@ FROM alpine:latest
 
 RUN apk update && apk upgrade
 RUN apk add nginx \
-        php8 \
-        php8-fpm \
-        php8-opcache \
-        php8-gd \
-        php8-zlib \
-        php8-curl \
-        php8-mysqli \
-        php8-gettext \
-        php8-zip \
-        php8-json \
-        php8-xsl \
-        php8-pdo_mysql \
-        php8-session \
-        php8-xml \
-        php8-simplexml \
-        php8-ctype \
-        php8-fileinfo \
+        php82 \
+        php82-fpm \
+        php82-opcache \
+        php82-gd \
+        php82-zlib \
+        php82-curl \
+        php82-mysqli \
+        php82-gettext \
+        php82-zip \
+        php82-json \
+        php82-xsl \
+        php82-pdo_mysql \
+        php82-session \
+        php82-xml \
+        php82-simplexml \
+        php82-ctype \
+        php82-fileinfo \
         --no-cache
 RUN mkdir -p /var/www/html && chown -R root:www-data /var/www/html
 
